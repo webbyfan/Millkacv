@@ -6,7 +6,7 @@ import axios from "axios";
 // Create axios instance with base URL
 // TODO: Update this to your actual backend URL when ready
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://127.0.0.1:4000/api";
+  import.meta.env.VITE_API_URL || "http://127.0.0.1:5000/api";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
