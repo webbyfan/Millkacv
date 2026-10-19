@@ -1,10 +1,10 @@
 /* Header Styles */
 
 .header {
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 20px 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  border-bottom: 1.5px solid #ede9fe;
+  padding: 22px 32px;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.04);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -21,19 +21,22 @@
 /* Header Left */
 .header-left {
   flex: 1;
+  text-align: center;
 }
 
 .welcome-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 8px 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.4px;
 }
 
 .header-subtitle {
-  font-size: 14px;
-  color: #666;
+  font-size: 14.5px;
+  color: #6d28d9;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Header Right */
@@ -64,26 +67,37 @@
 /* Notification Button */
 .notification-btn {
   position: relative;
-}
-
-.notification-icon {
-  display: inline-block;
-}
-
-.notification-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #ef4444;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #4b5563;
+  padding: 0;
+}
+
+.notification-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.notification-icon-svg {
+  display: block;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background: #4f46e5;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 /* User Profile */
@@ -91,22 +105,32 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .user-profile:hover {
   background: #f3f4f6;
+  border-color: #d1d5db;
 }
 
-.user-avatar {
-  width: 40px;
-  height: 40px;
+.user-avatar-initials {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
+  user-select: none;
 }
 
 .user-name {

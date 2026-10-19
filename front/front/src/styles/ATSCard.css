@@ -1,21 +1,21 @@
 /* ATS Tips Card Styles */
 
 .ats-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  border: 1.5px solid #ede9fe;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 .ats-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.14);
   border-color: #7c3aed;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Card Header */
@@ -27,18 +27,19 @@
 
 .ats-card-title {
   font-size: 16px;
-  font-weight: 700;
-  color: #111;
+  font-weight: 800;
+  color: #1e1b4b;
   margin: 0;
   flex: 1;
+  letter-spacing: -0.2px;
 }
 
 /* Card Description */
 .ats-card-description {
   font-size: 14px;
-  color: #666;
+  color: #4b5563;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Responsive Design */

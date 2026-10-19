@@ -64,190 +64,156 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <button
-          type="button"
-          className="auth-back-btn"
-          onClick={() => navigate("/")}
-        >
-          Back
-        </button>
-
-        <div className="auth-header">
-          <div className="auth-logo">M</div>
-          <h1 className="auth-title">Welcome Back</h1>
-          <p className="auth-subtitle">Sign in to your MilkaaCV account</p>
-        </div>
-
-        <form onSubmit={handleLogin} noValidate>
-          <FormField
-            id="email"
-            label="Email address"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              if (touched.email) {
-                const errors = validateLoginForm({
-                  email: e.target.value,
-                  password,
-                });
-                setFieldErrors((prev) => ({
-                  ...prev,
-                  email: errors.email || "",
-                }));
-              }
-            }}
-            onBlur={() => handleBlur("email")}
-            error={fieldErrors.email}
-            touched={touched.email}
-            placeholder="you@example.com"
-            required
-            autoComplete="email"
-          />
-
-          <FormField
-            id="password"
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              if (touched.password) {
-                const errors = validateLoginForm({
-                  email,
-                  password: e.target.value,
-                });
-                setFieldErrors((prev) => ({
-                  ...prev,
-                  password: errors.password || "",
-                }));
-              }
-            }}
-            onBlur={() => handleBlur("password")}
-            error={fieldErrors.password}
-            touched={touched.password}
-            placeholder="••••••••"
-            required
-            showPasswordToggle
-            autoComplete="current-password"
-          />
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "20px",
-              fontSize: "14px",
-            }}
-          >
-            <label
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                color: "#666",
-                cursor: "pointer",
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  cursor: "pointer",
-                  accentColor: "#DA291C",
-                }}
-              />
-              Remember me
-            </label>
-            <button
-              type="button"
-              className="auth-link"
-              onClick={() => navigate("/forgot-password")}
-            >
-              Forgot password?
-            </button>
-          </div>
-
-          {formError && (
-            <div className="form-alert form-alert--error" role="alert">
-              {formError}
-            </div>
-          )}
-
-          <button type="submit" disabled={loading} className="auth-submit">
-            {loading ? "Signing in..." : "Sign In"}
-          </button>
-        </form>
-
+    <div className="split-auth-container">
+      {/* Left Visual Hero with Big Logo Only */}
+      <div className="split-auth-left">
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            margin: "24px 0",
-          }}
+          className="split-auth-big-logo-wrapper"
+          onClick={() => navigate("/")}
+          title="Millka CV Home"
         >
-          <div style={{ flex: 1, height: "1px", backgroundColor: "#ddd" }} />
-          <span style={{ color: "#999", fontSize: "12px" }}>OR</span>
-          <div style={{ flex: 1, height: "1px", backgroundColor: "#ddd" }} />
+          <div className="split-auth-big-logo-card">
+            <img
+              src="/logo.png"
+              alt="Millka CV"
+              className="split-auth-big-logo-img"
+            />
+          </div>
         </div>
+      </div>
 
-        <button
-          type="button"
-          style={{
-            width: "100%",
-            padding: "12px",
-            border: "2px solid #ddd",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-            fontWeight: "600",
-            fontSize: "14px",
-            cursor: "pointer",
-            color: "#111",
-            marginBottom: "24px",
-          }}
-        >
-          Continue with Google
-        </button>
-
-        <p className="auth-footer">
-          Don&apos;t have an account?{" "}
+      {/* Right Form Panel */}
+      <div className="split-auth-right">
+        <div className="split-auth-top-actions">
           <button
             type="button"
-            className="auth-link"
-            onClick={() => navigate("/register")}
+            className="split-back-home-btn"
+            onClick={() => navigate("/")}
+            title="Back to Landing Page"
           >
-            Create account
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            <span>Back to Home</span>
           </button>
-        </p>
+        </div>
 
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "12px",
-            color: "#999",
-            marginTop: "24px",
-            lineHeight: "1.6",
-          }}
-        >
-          By signing in, you agree to our{" "}
-          <a href="#terms" style={{ color: "#DA291C", textDecoration: "none" }}>
-            Terms of Service
-          </a>{" "}
-          and{" "}
-          <a
-            href="#privacy"
-            style={{ color: "#DA291C", textDecoration: "none" }}
-          >
-            Privacy Policy
-          </a>
-        </p>
+        <div className="split-auth-form-card">
+          <div className="split-auth-header">
+            <h1 className="split-auth-title">Login</h1>
+            <p className="split-auth-subtitle">
+              Enter your credentials to access your account
+            </p>
+          </div>
+
+          <form onSubmit={handleLogin} noValidate className="split-auth-form">
+            <FormField
+              id="email"
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (touched.email) {
+                  const errors = validateLoginForm({
+                    email: e.target.value,
+                    password,
+                  });
+                  setFieldErrors((prev) => ({
+                    ...prev,
+                    email: errors.email || "",
+                  }));
+                }
+              }}
+              onBlur={() => handleBlur("email")}
+              error={fieldErrors.email}
+              touched={touched.email}
+              placeholder="aimerpaix@gmail.com"
+              required
+              autoComplete="email"
+            />
+
+            <FormField
+              id="password"
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (touched.password) {
+                  const errors = validateLoginForm({
+                    email,
+                    password: e.target.value,
+                  });
+                  setFieldErrors((prev) => ({
+                    ...prev,
+                    password: errors.password || "",
+                  }));
+                }
+              }}
+              onBlur={() => handleBlur("password")}
+              error={fieldErrors.password}
+              touched={touched.password}
+              placeholder="••••••••"
+              required
+              showPasswordToggle
+              autoComplete="current-password"
+            />
+
+            <div className="split-auth-remember-row">
+              <label className="split-auth-checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+                Remember me
+              </label>
+              <button
+                type="button"
+                className="split-auth-forgot-btn"
+                onClick={() => navigate("/forgot-password")}
+              >
+                Forgot password?
+              </button>
+            </div>
+
+            {formError && (
+              <div className="form-alert form-alert--error" role="alert">
+                {formError}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="split-auth-submit-btn"
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+
+            <p className="split-auth-footer">
+              Not a member?{" "}
+              <button
+                type="button"
+                className="split-auth-footer-link"
+                onClick={() => navigate("/register")}
+              >
+                Create an account
+              </button>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

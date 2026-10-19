@@ -31,31 +31,12 @@ export default function Header() {
       <div className="header-content">
         {/* Welcome Message */}
         <div className="header-left">
-          <h1 className="welcome-text">Welcome back, {user.name}! 👋</h1>
+          <h1 className="welcome-text">Welcome back, {user.name}!</h1>
           <p className="header-subtitle">
             Create ATS-friendly resumes for internships and jobs.
           </p>
         </div>
 
-        {/* Header Right */}
-        <div className="header-right">
-          {/* Notification Bell */}
-          <button className="header-btn notification-btn" title="Notifications">
-            <span className="notification-icon">🔔</span>
-            <span className="notification-badge">3</span>
-          </button>
-
-          {/* User Avatar */}
-          <div className="user-profile">
-            <img
-              src={user.avatar}
-              alt={user.name}
-              className="user-avatar"
-              title={user.name}
-            />
-            <span className="user-name">{user.name}</span>
-          </div>
-        </div>
       </div>
     </header>
   );

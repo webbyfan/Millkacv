@@ -154,4 +154,86 @@ export const getAtsTips = async () => {
   }
 };
 
+// =====================================================
+// AI ASSISTANT ENDPOINTS
+// =====================================================
+
+// Check AI status
+export const getAIStatus = async () => {
+  try {
+    const response = await apiClient.get("/ai/status");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching AI status:", error);
+    return { configured: false, provider: "MilkaaCV AI" };
+  }
+};
+
+// Generate or improve professional summary
+export const improveSummaryWithAI = async (data) => {
+  try {
+    const response = await apiClient.post("/ai/improve-summary", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error generating AI summary:", error);
+    throw error;
+  }
+};
+
+// Polish resume bullet point
+export const improveBulletWithAI = async (data) => {
+  try {
+    const response = await apiClient.post("/ai/improve-bullet", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error polishing AI bullet:", error);
+    throw error;
+  }
+};
+
+// Suggest ATS keywords and skills
+export const suggestSkillsWithAI = async (data) => {
+  try {
+    const response = await apiClient.post("/ai/suggest-skills", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting AI skills:", error);
+    throw error;
+  }
+};
+
+// Real ATS analysis and Job Description Keyword Matcher
+export const analyzeResumeWithAI = async (data) => {
+  try {
+    const response = await apiClient.post("/ai/analyze-ats", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error analyzing ATS with AI:", error);
+    throw error;
+  }
+};
+
+// Scan External CV (PDF or raw text) with AI
+export const scanExternalCvWithAI = async (data) => {
+  try {
+    const response = await apiClient.post("/ai/scan-external-cv", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error scanning external CV with AI:", error);
+    throw error;
+  }
+};
+
+// Generate complete polished resume with AI
+export const generateCompleteResumeWithAI = async (resumeData) => {
+  try {
+    const response = await apiClient.post("/ai/generate-complete-resume", resumeData);
+    return response.data;
+  } catch (error) {
+    console.error("Error generating complete resume with AI:", error);
+    throw error;
+  }
+};
+
 export default apiClient;
+

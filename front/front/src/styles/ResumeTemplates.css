@@ -14,18 +14,130 @@
 .resume-template {
   width: 100%;
   max-width: 850px;
+  min-height: 1050px;
+  height: auto;
   padding: 36px 32px 28px;
   background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.4;
-  color: #333;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+  color: #334155;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+  word-break: break-word;
 }
 
 /* ============================================
-   COMMON STYLES
+   SHARED SUBCOMPONENTS & UTILITIES
    ============================================ */
 
+/* Photo Frame */
+.rt-photo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.rt-photo-frame:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+.rt-photo-frame.shape-circle {
+  border-radius: 50%;
+}
+
+.rt-photo-frame.shape-rounded {
+  border-radius: 8px;
+}
+
+.rt-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rt-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rt-photo-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: #7c3aed;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Rating Dots */
+.rt-rating-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+/* Rating Bar */
+.rt-bar-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.rt-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Bullet Lists */
+.rt-entry-bullets {
+  margin: 5px 0 0 0;
+  padding-left: 16px;
+  font-size: 10px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.rt-entry-bullets li {
+  margin-bottom: 4px;
+}
+
+/* Common Section Titles */
 .template-header {
   margin-bottom: 18px;
   padding-top: 12px;
@@ -121,10 +233,970 @@
   line-height: 1.6;
 }
 
-/* ============================================
-   MODERN TEMPLATE
-   ============================================ */
+/* ==========================================================================
+   TEMPLATE 1: TEAL EXECUTIVE (Top Teal Banner, 2-Column Body)
+   ========================================================================== */
+.teal-banner-template {
+  padding: 0 !important;
+}
 
+.teal-header-banner {
+  background: #005f73;
+  color: #ffffff;
+  padding: 30px 32px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.teal-header-text {
+  flex: 1;
+}
+
+.teal-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.2px;
+}
+
+.teal-title {
+  font-size: 12.5px;
+  color: #a5f3fc;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.teal-contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  font-size: 10px;
+  color: #e0f2fe;
+}
+
+.teal-contact-bar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.teal-contact-bar svg {
+  color: #67e8f9;
+}
+
+.teal-banner-photo {
+  width: 90px;
+  height: 105px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.teal-body-grid {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  gap: 26px;
+  padding: 28px 32px 32px;
+}
+
+.teal-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teal-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teal-sec-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.teal-summary-text {
+  font-size: 9.5px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0;
+}
+
+.teal-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.teal-skill-pill {
+  background: #f0fdfa;
+  color: #0d9488;
+  border: 1px solid #99f6e4;
+  padding: 3.5px 9px;
+  border-radius: 12px;
+  font-size: 9.5px;
+  font-weight: 500;
+}
+
+.teal-languages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teal-lang-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.teal-lang-level {
+  font-size: 9px;
+  color: #64748b;
+  display: block;
+  margin-top: 2px;
+}
+
+.teal-achieve-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.teal-achieve-list li {
+  margin-bottom: 6px;
+}
+
+.teal-entry {
+  margin-bottom: 14px;
+}
+
+.teal-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.teal-job-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.teal-job-date {
+  font-size: 9px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.teal-company-row {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  margin: 2px 0 6px 0;
+}
+
+.teal-company-name {
+  color: #0e7490;
+  font-weight: 600;
+}
+
+.teal-company-loc {
+  color: #64748b;
+}
+
+.teal-edu-field {
+  font-size: 9px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-style: italic;
+}
+
+.teal-cert-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.teal-cert-list li {
+  margin-bottom: 4px;
+}
+
+.teal-cert-date {
+  color: #64748b;
+  font-size: 9px;
+}
+
+/* ==========================================================================
+   TEMPLATE 2: OBSIDIAN DARK SIDEBAR (Black Left Sidebar, White Main Area)
+   ========================================================================== */
+.dark-sidebar-template {
+  padding: 0 !important;
+  display: flex;
+}
+
+.dark-sidebar-col {
+  width: 32%;
+  background: #111827;
+  color: #f3f4f6;
+  padding: 32px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.dark-sec-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.dark-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 9.5px;
+  color: #d1d5db;
+}
+
+.dark-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  word-break: break-all;
+}
+
+.dark-contact-item svg {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.dark-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dark-skill-pill {
+  background: #2a1218;
+  color: #fb7185;
+  border: 1px solid #4c1d29;
+  border-radius: 12px;
+  padding: 3.5px 9px;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.dark-lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dark-lang-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9.5px;
+  font-weight: 500;
+  color: #f3f4f6;
+}
+
+.dark-lang-sub {
+  font-size: 8.5px;
+  color: #9ca3af;
+  display: block;
+  margin-top: 1px;
+}
+
+.dark-bullet-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9px;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.dark-bullet-list li {
+  margin-bottom: 5px;
+}
+
+.dark-cert-date {
+  display: block;
+  font-size: 8px;
+  color: #9ca3af;
+  margin-top: 1px;
+}
+
+.dark-main-col {
+  width: 68%;
+  background: #ffffff;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+.dark-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.dark-title {
+  font-size: 12px;
+  color: #be123c;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dark-main-sec-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  border-bottom: 1.5px solid #f1f5f9;
+  padding-bottom: 4px;
+}
+
+.dark-main-text {
+  font-size: 9.5px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0;
+}
+
+.dark-entry {
+  margin-bottom: 12px;
+}
+
+.dark-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dark-job-pos {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dark-job-date {
+  font-size: 9px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.dark-job-sub {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  margin: 2px 0 5px 0;
+}
+
+.dark-company {
+  color: #be123c;
+  font-weight: 600;
+}
+
+.dark-loc {
+  color: #64748b;
+}
+
+.dark-edu-field {
+  font-size: 9px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   TEMPLATE 3: CLASSIC ROSE (Circular Photo Header, 2-Column Minimalist)
+   ========================================================================== */
+.classic-rose-template {
+  padding: 32px !important;
+}
+
+.rose-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid #f1f5f9;
+}
+
+.rose-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px solid #fda4af;
+  box-shadow: 0 4px 14px rgba(190, 18, 60, 0.12);
+}
+
+.rose-name {
+  font-family: Georgia, Cambria, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0 0 4px 0;
+}
+
+.rose-title {
+  font-size: 12px;
+  color: #be123c;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rose-body-grid {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  gap: 24px;
+}
+
+.rose-col-left {
+  border-right: 1px solid #f1f5f9;
+  padding-right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rose-sec-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 4px;
+}
+
+.rose-sec-text {
+  font-size: 9.5px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.rose-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 9.5px;
+  color: #475569;
+}
+
+.rose-contact-list div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  word-break: break-all;
+}
+
+.rose-contact-list svg {
+  color: #be123c;
+  flex-shrink: 0;
+}
+
+.rose-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.rose-skill-pill {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #ffe4e6;
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.rose-lang-item {
+  margin-bottom: 6px;
+}
+
+.rose-lang-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 2px;
+}
+
+.rose-lang-top small {
+  color: #64748b;
+  font-size: 8.5px;
+}
+
+.rose-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rose-entry {
+  margin-bottom: 12px;
+}
+
+.rose-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.rose-job-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.rose-job-date {
+  font-size: 9px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.rose-company-row {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  margin: 2px 0 5px 0;
+}
+
+.rose-company {
+  color: #be123c;
+  font-weight: 600;
+}
+
+.rose-loc {
+  color: #64748b;
+}
+
+.rose-edu-field {
+  font-size: 9px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-style: italic;
+}
+
+.rose-bullet-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.rose-bullet-list li {
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   TEMPLATE 4: AZURE CORPORATE (White Left, Cobalt/Azure Blue Right Sidebar)
+   ========================================================================== */
+.azure-sidebar-template {
+  padding: 0 !important;
+  display: flex;
+}
+
+.azure-main-col {
+  width: 65%;
+  background: #ffffff;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+.azure-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.azure-title {
+  font-size: 12px;
+  color: #0284c7;
+  font-weight: 600;
+  margin: 0;
+}
+
+.azure-main-sec-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  border-bottom: 1.5px solid #f1f5f9;
+  padding-bottom: 4px;
+}
+
+.azure-entry {
+  margin-bottom: 12px;
+}
+
+.azure-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.azure-job-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.azure-job-date {
+  font-size: 9px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.azure-company-row {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  margin: 2px 0 5px 0;
+}
+
+.azure-company {
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.azure-loc {
+  color: #64748b;
+}
+
+.azure-edu-field {
+  font-size: 9px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-style: italic;
+}
+
+.azure-cert-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.azure-cert-list li {
+  margin-bottom: 4px;
+}
+
+.azure-sidebar-col {
+  width: 35%;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+.azure-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.azure-profile-photo {
+  width: 90px;
+  height: 105px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.azure-side-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 3px;
+}
+
+.azure-side-text {
+  font-size: 9px;
+  line-height: 1.55;
+  color: #f0f9ff;
+  margin: 0;
+}
+
+.azure-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 9px;
+  color: #f0f9ff;
+}
+
+.azure-contact-list div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  word-break: break-all;
+}
+
+.azure-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.azure-skill-item {
+  font-size: 9px;
+}
+
+.azure-skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.azure-skill-level {
+  font-size: 8px;
+  color: #bae6fd;
+  display: block;
+  margin-top: 1px;
+}
+
+.azure-side-bullets {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9px;
+  color: #f0f9ff;
+  line-height: 1.5;
+}
+
+.azure-side-bullets li {
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   TEMPLATE 5: CRIMSON CREATIVE (Rich Crimson Left Sidebar, White Main)
+   ========================================================================== */
+.crimson-sidebar-template {
+  padding: 0 !important;
+  display: flex;
+}
+
+.crimson-sidebar-col {
+  width: 35%;
+  background: #9f1239;
+  color: #ffffff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+.crimson-sec-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 3px;
+}
+
+.crimson-sec-text {
+  font-size: 9px;
+  line-height: 1.55;
+  color: #fff1f2;
+  margin: 0;
+}
+
+.crimson-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 9px;
+  color: #fff1f2;
+}
+
+.crimson-contact-list div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  word-break: break-all;
+}
+
+.crimson-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crimson-skill-item {
+  margin-bottom: 4px;
+}
+
+.crimson-skill-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.crimson-skill-level {
+  font-size: 8px;
+  color: #fbcfe8;
+}
+
+.crimson-bullet-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9px;
+  color: #fff1f2;
+  line-height: 1.5;
+}
+
+.crimson-bullet-list li {
+  margin-bottom: 4px;
+}
+
+.crimson-main-col {
+  width: 65%;
+  background: #ffffff;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+.crimson-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.crimson-title {
+  font-size: 12px;
+  color: #0891b2;
+  font-weight: 600;
+  margin: 0;
+}
+
+.crimson-main-sec-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  border-bottom: 1.5px solid #f1f5f9;
+  padding-bottom: 4px;
+}
+
+.crimson-entry {
+  margin-bottom: 12px;
+}
+
+.crimson-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.crimson-job-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.crimson-job-date {
+  font-size: 9px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.crimson-company-row {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  margin: 2px 0 5px 0;
+}
+
+.crimson-company {
+  color: #be123c;
+  font-weight: 600;
+}
+
+.crimson-loc {
+  color: #64748b;
+}
+
+.crimson-edu-field {
+  font-size: 9px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-style: italic;
+}
+
+.crimson-cert-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.crimson-cert-list li {
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   MODERN TEMPLATE (Vibrant Purple Theme)
+   ========================================================================== */
 .modern-template {
   background: white;
 }
@@ -134,7 +1206,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 18px;
-  border-bottom: 2px solid #da291c;
+  border-bottom: 2px solid #7c3aed;
   padding-bottom: 12px;
   margin-bottom: 18px;
 }
@@ -145,7 +1217,7 @@
 }
 
 .modern-header .candidate-name {
-  color: #da291c;
+  color: #7c3aed;
   font-size: 24px;
   margin-bottom: 6px;
   line-height: 1.3;
@@ -155,13 +1227,13 @@
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  border: 2px solid #da291c;
+  border: 2px solid #7c3aed;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   font-weight: 700;
-  color: #da291c;
+  color: #7c3aed;
   background: #fff;
   cursor: pointer;
   flex-shrink: 0;
@@ -177,10 +1249,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.photo-upload-circle span {
-  line-height: 1;
 }
 
 .modern-header .professional-title {
@@ -208,7 +1276,7 @@
 }
 
 .modern-section .section-title {
-  color: #da291c;
+  color: #7c3aed;
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 8px;
   margin-bottom: 12px;
@@ -242,44 +1310,39 @@
   line-height: 1.3;
 }
 
-/* ============================================
+/* ==========================================================================
    CLASSIC TEMPLATE
-   ============================================ */
-
+   ========================================================================== */
 .classic-template {
   background: white;
 }
 
 .classic-header {
-  margin-bottom: 18px;
-}
-
-.classic-header-top {
-  margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 14px;
 }
 
 .classic-header-top .candidate-name {
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 26px;
+  margin: 0 0 6px 0;
   letter-spacing: 0.5px;
   line-height: 1.3;
 }
 
 .classic-header-divider {
-  height: 2px;
-  background: #333;
+  height: 1px;
+  background: #ddd;
   margin: 8px 0;
 }
 
-.classic-header-info {
-  text-align: center;
-}
-
 .classic-header-info .professional-title {
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 12px;
+  color: #555;
+  margin: 0 0 6px 0;
+  font-style: italic;
   line-height: 1.3;
 }
 
@@ -292,16 +1355,15 @@
 .classic-section {
   margin-bottom: 16px;
   padding: 12px 0 14px 0;
-  border-bottom: 1px solid #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .classic-title {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  letter-spacing: 1px;
   border-bottom: 1px solid #333;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
   margin-bottom: 12px;
   line-height: 1.3;
 }
@@ -314,152 +1376,92 @@
 .entry-header-classic {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4px;
+  align-items: baseline;
   gap: 8px;
   flex-wrap: wrap;
-}
-
-.entry-header-classic .entry-title {
-  font-weight: 700;
-  font-size: 11px;
-  flex: 1;
-  line-height: 1.35;
-}
-
-.entry-header-classic .entry-date {
-  font-size: 9px;
-  white-space: nowrap;
-  line-height: 1.3;
+  margin-bottom: 4px;
 }
 
 .classic-company {
   font-style: italic;
-  color: #555;
-  font-size: 10px;
-  margin: 4px 0 3px 0;
-  line-height: 1.3;
+  color: #666;
+  margin: 0 0 4px 0;
 }
 
-/* ============================================
-   CREATIVE TEMPLATE
-   ============================================ */
-
+/* ==========================================================================
+   CREATIVE & MINIMAL TEMPLATES
+   ========================================================================== */
 .creative-template {
   background: white;
-  position: relative;
 }
 
 .creative-header {
-  margin-bottom: 18px;
   position: relative;
-  padding-left: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .creative-accent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 50px;
-  background: linear-gradient(to bottom, #da291c, #ff6b35);
+  width: 40px;
+  height: 4px;
+  background: #7c3aed;
+  margin-bottom: 10px;
 }
 
 .creative-header .candidate-name {
-  font-size: 24px;
-  color: #da291c;
-  margin: 0 0 6px 0;
+  font-size: 26px;
+  color: #111;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .creative-header .professional-title {
-  color: #666;
-  font-size: 11px;
-  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: #7c3aed;
+  margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .contact-info-creative {
   font-size: 10px;
-  color: #888;
-  margin-top: 6px;
-  line-height: 1.4;
+  color: #777;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .contact-info-creative .separator {
-  margin: 0 4px;
-  color: #da291c;
+  color: #7c3aed;
 }
 
 .creative-section {
-  margin-bottom: 16px;
-  position: relative;
-  padding: 12px 0 14px 14px;
+  margin-bottom: 18px;
+  padding: 12px 0 14px 0;
   border-bottom: 1px solid #f9f9f9;
 }
 
 .creative-title {
-  color: #da291c;
+  color: #7c3aed;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  line-height: 1.3;
+  margin-bottom: 6px;
 }
 
 .creative-accent-small {
-  width: 3px;
-  height: 15px;
-  background: #da291c;
+  width: 24px;
+  height: 2px;
+  background: #7c3aed;
   margin-bottom: 8px;
 }
 
 .creative-entry {
   margin-bottom: 12px;
-  display: flex;
-  position: relative;
-  padding: 8px 0 8px 12px;
+  padding: 8px 0;
 }
-
-.creative-entry-marker {
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  background: #da291c;
-  border-radius: 50%;
-}
-
-.creative-entry .entry-content {
-  width: 100%;
-}
-
-.creative-entry .entry-title {
-  margin: 0 0 5px 0;
-  line-height: 1.35;
-}
-
-.creative-entry .entry-company {
-  margin: 0 0 4px 0;
-  line-height: 1.3;
-}
-
-.creative-entry .entry-date {
-  font-size: 9px;
-  color: #999;
-  margin-top: 3px;
-  line-height: 1.3;
-}
-
-.creative-entry .entry-field {
-  margin-top: 3px;
-  line-height: 1.3;
-}
-
-/* ============================================
-   MINIMAL TEMPLATE
-   ============================================ */
 
 .minimal-template {
   background: white;
@@ -474,19 +1476,16 @@
 .minimal-header .candidate-name {
   font-size: 24px;
   margin: 0 0 6px 0;
-  line-height: 1.3;
 }
 
 .minimal-header .professional-title {
   font-size: 11px;
   margin: 0 0 8px 0;
-  line-height: 1.3;
 }
 
 .contact-info-minimal {
   font-size: 10px;
   color: #888;
-  line-height: 1.4;
 }
 
 .minimal-section {
@@ -495,26 +1494,9 @@
   border-bottom: 1px solid #f9f9f9;
 }
 
-.minimal-section .section-title {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-bottom: 12px;
-  color: #333;
-  line-height: 1.3;
-}
-
 .minimal-entry {
   margin-bottom: 12px;
   padding: 8px 0;
-}
-
-.minimal-entry .entry-title {
-  font-size: 11px;
-  font-weight: 600;
-  margin: 0 0 5px 0;
-  line-height: 1.35;
 }
 
 .entry-meta {
@@ -532,60 +1514,67 @@
   color: #555;
   margin: 0;
   flex: 1;
-  line-height: 1.3;
 }
 
 .entry-meta .entry-date {
   color: #999;
   white-space: nowrap;
-  line-height: 1.3;
 }
 
-/* ============================================
+/* ==========================================================================
    PRINT STYLES
-   ============================================ */
-
+   ========================================================================== */
 @media print {
   .resume-preview-container {
-    padding: 0;
-    background: white;
+    padding: 0 !important;
+    background: white !important;
     min-height: auto;
   }
 
   .resume-template {
-    box-shadow: none;
-    padding: 30px 24px 22px;
-    max-width: 100%;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    border: none !important;
+    page-break-after: avoid;
+    break-after: avoid;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
 
-/* ============================================
+/* ==========================================================================
    RESPONSIVE DESIGN
-   ============================================ */
-
+   ========================================================================== */
 @media (max-width: 768px) {
   .resume-preview-container {
-    padding: 20px 10px;
+    padding: 10px;
   }
 
   .resume-template {
-    padding: 24px;
     max-width: 100%;
+    min-height: auto;
   }
 
-  .candidate-name {
-    font-size: 22px;
+  .teal-header-banner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .professional-title {
-    font-size: 12px;
+  .teal-body-grid,
+  .dark-sidebar-template,
+  .rose-body-grid,
+  .azure-sidebar-template,
+  .crimson-sidebar-template {
+    display: flex;
+    flex-direction: column;
   }
 
-  .section-content {
-    font-size: 10px;
-  }
-
-  .entry-description {
-    font-size: 10px;
+  .dark-sidebar-col,
+  .dark-main-col,
+  .azure-main-col,
+  .azure-sidebar-col,
+  .crimson-sidebar-col,
+  .crimson-main-col {
+    width: 100% !important;
   }
 }

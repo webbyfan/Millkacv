@@ -1,35 +1,41 @@
 /* Stats Card Styles */
 
 .stats-card {
-  background: white;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #f0f0f0;
-  transition: all 0.3s ease;
+  gap: 18px;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);
+  border: 1.5px solid #ede9fe;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
 }
 
 .stats-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.15);
+  transform: translateY(-3px);
   border-color: #7c3aed;
 }
 
 /* Icon */
 .stats-icon {
-  font-size: 32px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, #f3e8ff, #ede9fe);
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+}
+
+.stats-icon svg {
+  color: #7c3aed;
+  display: block;
 }
 
 /* Content */
@@ -39,44 +45,48 @@
 
 .stats-label {
   font-size: 12px;
-  font-weight: 600;
-  color: #666;
-  margin: 0 0 8px 0;
+  font-weight: 700;
+  color: #7c3aed;
+  margin: 0 0 6px 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .stats-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: #111;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1e1b4b;
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
 /* Trend Indicator */
 .stats-trend {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 9999px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
 }
 
-.stats-trend.up {
-  background: #f0fdf4;
-  color: #166534;
-}
-
+.stats-trend.up,
 .stats-trend.down {
-  background: #fef2f2;
-  color: #991b1b;
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
 }
 
 .trend-icon {
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7c3aed;
 }
 
 .trend-text {

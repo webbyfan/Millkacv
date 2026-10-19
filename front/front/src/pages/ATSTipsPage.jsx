@@ -316,22 +316,6 @@ export default function ATSTipsPage() {
         <Header />
 
         <div className="ats-tips-container">
-          {/* Hero Section */}
-          <div className="ats-hero">
-            <div className="hero-content">
-              <h1>🎯 ATS Optimization Tips</h1>
-              <p>
-                Master the art of Applicant Tracking System optimization to get
-                your resume seen by hiring managers
-              </p>
-            </div>
-            <button
-              className="btn-create-resume-hero"
-              onClick={() => navigate("/create-resume")}
-            >
-              Create Resume Now
-            </button>
-          </div>
 
           {/* Tab Navigation */}
           <div className="ats-tabs">

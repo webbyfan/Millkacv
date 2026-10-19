@@ -9,6 +9,8 @@ import CreateResumePage from "./pages/CreateResumePage";
 import MyResumesPage from "./pages/MyResumesPage";
 import ATSTipsPage from "./pages/ATSTipsPage";
 import ProfilePage from "./pages/ProfilePage";
+import ViewResumePage from "./pages/ViewResumePage";
+import EditResumePage from "./pages/EditResumePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
 
@@ -32,6 +34,22 @@ export default function App() {
         element={
           <ProtectedRoute>
             <CreateResumePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/view-resume/:id"
+        element={
+          <ProtectedRoute>
+            <ViewResumePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit-resume/:id"
+        element={
+          <ProtectedRoute>
+            <EditResumePage />
           </ProtectedRoute>
         }
       />

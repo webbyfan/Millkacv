@@ -154,13 +154,6 @@ export default function MyResumesPage() {
               <h1>My Resumes</h1>
               <p>View and manage all your resumes</p>
             </div>
-            <button
-              className="btn-create-new"
-              onClick={() => navigate("/create-resume")}
-              title="Create a new resume"
-            >
-              + Create New Resume
-            </button>
           </div>
 
           {/* Loading State */}
@@ -396,11 +389,11 @@ export default function MyResumesPage() {
             </div>
           )}
 
-          {/* Hidden preview for PDF export */}
+          {/* Off-screen preview for PDF export */}
           {resumeToExport && (
             <div
               ref={pdfPreviewRef}
-              style={{ display: "none", width: "8.5in", height: "11in" }}
+              style={{ position: "fixed", left: "-9999px", top: 0, width: "850px", background: "#ffffff", zIndex: -9999 }}
             >
               <ResumeTemplate data={resumeToExport} />
             </div>

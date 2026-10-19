@@ -21,6 +21,26 @@
   width: 80px;
 }
 
+.sidebar.collapsed .sidebar-header {
+  padding: 16px 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  justify-content: center;
+  flex: none;
+  width: 100%;
+}
+
+.sidebar.collapsed .collapse-btn {
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+}
+
 /* Sidebar Header */
 .sidebar-header {
   padding: 24px 16px;
@@ -36,6 +56,16 @@
   align-items: center;
   gap: 12px;
   flex: 1;
+}
+
+.sidebar-logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  background: white;
 }
 
 .logo-icon {
@@ -124,6 +154,9 @@
   font-size: 18px;
   flex-shrink: 0;
   min-width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-label {

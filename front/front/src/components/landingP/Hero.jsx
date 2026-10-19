@@ -10,8 +10,8 @@ export default function Hero() {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(to bottom, white, #f9fafb)",
-        paddingTop: "96px",
+        background: "linear-gradient(180deg, #ffffff 0%, #fbfbfe 100%)",
+        paddingTop: "108px",
         paddingBottom: "64px",
         paddingLeft: "24px",
         paddingRight: "24px",
@@ -34,31 +34,34 @@ export default function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              backgroundColor: "#43413a",
-              color: "#c9f505f4",
-              padding: "8px 16px",
+              padding: "6px 16px",
               borderRadius: "9999px",
-              marginBottom: "24px",
-              fontSize: "14px",
-              fontWeight: "600",
+              backgroundColor: "#f5f3ff",
+              border: "1px solid #ddd6fe",
+              color: "#7c3aed",
+              fontSize: "13.5px",
+              fontWeight: "700",
+              marginBottom: "20px",
             }}
           >
-            ✨ AI-Powered Resume Builder
+            <span>✦</span>
+            <span>AI-Powered ATS Resume Builder</span>
           </div>
 
           <h1
             style={{
-              fontSize: "clamp(32px, 8vw, 72px)",
-              fontWeight: "bold",
-              color: "#111",
+              fontSize: "clamp(32px, 8vw, 68px)",
+              fontWeight: "800",
+              color: "#1e1b4b",
               marginBottom: "24px",
-              lineHeight: "1.2",
+              lineHeight: "1.15",
+              letterSpacing: "-1px",
             }}
           >
             Build Your Professional Resume
             <span
               style={{
-                background: "linear-gradient(to right, #DA291C, #078930)",
+                background: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -71,25 +74,24 @@ export default function Hero() {
 
           <p
             style={{
-              fontSize: "20px",
-              color: "#666",
-              maxWidth: "672px",
-              margin: "0 auto 32px",
-              lineHeight: "1.6",
+              fontSize: "19px",
+              color: "#4b5563",
+              maxWidth: "680px",
+              margin: "0 auto 36px",
+              lineHeight: "1.65",
             }}
           >
-            Built for Ethiopian students and fresh graduates. Create an
-            ATS-friendly resume that actually gets you hired. No experience
-            needed—our AI will help you shine.
+            Built for students, fresh graduates, and ambitious professionals. Create an
+            ATS-friendly resume that recruiters actually see. No design experience
+            needed—our AI will optimize every word.
           </p>
 
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               gap: "16px",
-              marginBottom: "48px",
+              marginBottom: "56px",
               flexWrap: "wrap",
               justifyContent: "center",
             }}
@@ -99,40 +101,41 @@ export default function Hero() {
               onMouseEnter={() => setHoverStart(true)}
               onMouseLeave={() => setHoverStart(false)}
               style={{
-                padding: "16px 32px",
-                background: "linear-gradient(to right, #DA291C, #FCD116)",
-                color: "black",
+                padding: "15px 32px",
+                background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+                color: "#ffffff",
                 border: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
+                borderRadius: "10px",
+                fontWeight: "700",
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
                 cursor: "pointer",
                 boxShadow: hoverStart
-                  ? "0 20px 25px rgba(218, 41, 28, 0.3)"
-                  : "0 10px 15px rgba(218, 41, 28, 0.2)",
-                transform: hoverStart ? "scale(1.05)" : "scale(1)",
-                transition: "all 0.3s ease",
+                  ? "0 12px 28px rgba(124, 58, 237, 0.4)"
+                  : "0 6px 18px rgba(124, 58, 237, 0.28)",
+                transform: hoverStart ? "translateY(-2px)" : "translateY(0)",
+                transition: "all 0.25s ease",
                 fontSize: "16px",
               }}
             >
-              Start Building Now →
+              Start Building Free →
             </button>
 
             <button
               onMouseEnter={() => setHoverDemo(true)}
               onMouseLeave={() => setHoverDemo(false)}
               style={{
-                padding: "16px 32px",
-                border: "2px solid #ddd",
-                backgroundColor: hoverDemo ? "#f9fafb" : "white",
-                color: "#111",
-                borderRadius: "8px",
-                fontWeight: "600",
+                padding: "15px 32px",
+                border: "1.5px solid #ddd6fe",
+                backgroundColor: hoverDemo ? "#f5f3ff" : "#ffffff",
+                color: "#7c3aed",
+                borderRadius: "10px",
+                fontWeight: "700",
                 cursor: "pointer",
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
                 fontSize: "16px",
+                boxShadow: "0 4px 12px rgba(124, 58, 237, 0.05)",
               }}
             >
               Watch Demo
@@ -145,61 +148,52 @@ export default function Hero() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "16px",
+            gap: "20px",
             marginBottom: "64px",
             textAlign: "center",
           }}
         >
-          <div>
+          {[
+            { value: "50K+", label: "Resumes Created" },
+            { value: "98%", label: "ATS Pass Rate" },
+            { value: "4.9★", label: "User Rating" },
+          ].map((stat, i) => (
             <div
+              key={i}
               style={{
-                fontSize: "clamp(24px, 5vw, 36px)",
-                fontWeight: "bold",
-                color: "#DA291C",
+                backgroundColor: "#ffffff",
+                padding: "20px",
+                borderRadius: "14px",
+                border: "1.5px solid #ede9fe",
+                boxShadow: "0 4px 14px rgba(124, 58, 237, 0.04)",
               }}
             >
-              50K+
+              <div
+                style={{
+                  fontSize: "clamp(26px, 5vw, 38px)",
+                  fontWeight: "800",
+                  color: "#7c3aed",
+                  letterSpacing: "-0.5px",
+                }}
+              >
+                {stat.value}
+              </div>
+              <div style={{ color: "#4b5563", fontSize: "15px", fontWeight: "600", marginTop: "4px" }}>
+                {stat.label}
+              </div>
             </div>
-            <div style={{ color: "#666", fontSize: "16px" }}>
-              Resumes Created
-            </div>
-          </div>
-          <div>
-            <div
-              style={{
-                fontSize: "clamp(24px, 5vw, 36px)",
-                fontWeight: "bold",
-                color: "#078930",
-              }}
-            >
-              92%
-            </div>
-            <div style={{ color: "#666", fontSize: "16px" }}>ATS Pass Rate</div>
-          </div>
-          <div>
-            <div
-              style={{
-                fontSize: "clamp(24px, 5vw, 36px)",
-                fontWeight: "bold",
-                color: "#FCD116",
-              }}
-            >
-              4.9★
-            </div>
-            <div style={{ color: "#666", fontSize: "16px" }}>User Rating</div>
-          </div>
+          ))}
         </div>
 
         {/* Hero Image/Preview */}
         <div
           style={{
             position: "relative",
-            background:
-              "linear-gradient(to bottom right, rgba(218, 41, 28, 0.1), rgba(7, 137, 48, 0.1))",
-            borderRadius: "16px",
-            padding: "32px",
-            border: "1px solid rgba(218, 41, 28, 0.3)",
-            backdropFilter: "blur(10px)",
+            background: "linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(109, 40, 217, 0.03))",
+            borderRadius: "20px",
+            padding: "24px",
+            border: "1.5px solid #ede9fe",
+            boxShadow: "0 25px 60px -15px rgba(124, 58, 237, 0.12)",
           }}
         >
           <div
@@ -235,15 +229,7 @@ export default function Hero() {
                     Full Stack Developer | San Francisco, CA
                   </p>
                 </div>
-                <div
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    background:
-                      "linear-gradient(to bottom right, #DA291C, #FCD116)",
-                    borderRadius: "50%",
-                  }}
-                ></div>
+
               </div>
 
               <div
@@ -314,7 +300,7 @@ export default function Hero() {
                     style={{
                       fontSize: "18px",
                       fontWeight: "bold",
-                      color: "#16a34a",
+                      color: "#7c3aed",
                     }}
                   >
                     98%

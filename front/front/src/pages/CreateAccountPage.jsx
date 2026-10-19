@@ -97,143 +97,184 @@ export default function CreateAccountPage() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card auth-card--wide">
-        <button
-          type="button"
-          className="auth-back-btn"
+    <div className="split-auth-container">
+      {/* Left Visual Hero with Big Logo Only */}
+      <div className="split-auth-left">
+        <div
+          className="split-auth-big-logo-wrapper"
           onClick={() => navigate("/")}
+          title="Millka CV Home"
         >
-          ← Back
-        </button>
-
-        <div className="auth-header">
-          <div className="auth-logo">M</div>
-          <h1 className="auth-title">Create account</h1>
-          <p className="auth-subtitle">Start your MilkaaCV account</p>
-        </div>
-
-        <form onSubmit={handleCreate} noValidate>
-          <div className="auth-row">
-            <FormField
-              id="firstName"
-              label="First name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              onBlur={() => handleBlur("firstName")}
-              error={fieldErrors.firstName}
-              touched={touched.firstName}
-              placeholder="First name"
-              autoComplete="given-name"
-            />
-            <FormField
-              id="lastName"
-              label="Last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              onBlur={() => handleBlur("lastName")}
-              error={fieldErrors.lastName}
-              touched={touched.lastName}
-              placeholder="Last name"
-              autoComplete="family-name"
+          <div className="split-auth-big-logo-card">
+            <img
+              src="/logo.png"
+              alt="Millka CV"
+              className="split-auth-big-logo-img"
             />
           </div>
+        </div>
+      </div>
 
-          <FormField
-            id="email"
-            label="Email address"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              if (touched.email)
-                validateField("email", { email: e.target.value });
-            }}
-            onBlur={() => handleBlur("email")}
-            error={fieldErrors.email}
-            touched={touched.email}
-            placeholder="you@example.com"
-            required
-            autoComplete="email"
-          />
-
-          <FormField
-            id="password"
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              if (touched.password) {
-                validateField("password", {
-                  email,
-                  password: e.target.value,
-                  confirm,
-                });
-              }
-              if (touched.confirm && confirm) {
-                validateField("confirm", {
-                  email,
-                  password: e.target.value,
-                  confirm,
-                });
-              }
-            }}
-            onBlur={() => handleBlur("password")}
-            error={fieldErrors.password}
-            touched={touched.password}
-            placeholder="Create a password"
-            required
-            showPasswordToggle
-            autoComplete="new-password"
-          />
-          <PasswordStrength password={password} />
-
-          <FormField
-            id="confirm"
-            label="Confirm password"
-            type="password"
-            value={confirm}
-            onChange={(e) => {
-              setConfirm(e.target.value);
-              if (touched.confirm) {
-                validateField("confirm", {
-                  email,
-                  password,
-                  confirm: e.target.value,
-                });
-              }
-            }}
-            onBlur={() => handleBlur("confirm")}
-            error={fieldErrors.confirm}
-            touched={touched.confirm}
-            placeholder="Confirm your password"
-            required
-            showPasswordToggle
-            autoComplete="new-password"
-          />
-
-          {formError && (
-            <div className="form-alert form-alert--error" role="alert">
-              {formError}
-            </div>
-          )}
-
-          <button type="submit" disabled={loading} className="auth-submit">
-            {loading ? "Creating..." : "Create account"}
-          </button>
-        </form>
-
-        <p className="auth-footer">
-          Already have an account?{" "}
+      {/* Right Form Panel */}
+      <div className="split-auth-right">
+        <div className="split-auth-top-actions">
           <button
             type="button"
-            className="auth-link"
-            onClick={() => navigate("/login")}
+            className="split-back-home-btn"
+            onClick={() => navigate("/")}
+            title="Back to Landing Page"
           >
-            Sign in
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            <span>Back to Home</span>
           </button>
-        </p>
+        </div>
+
+        <div className="split-auth-form-card">
+          <div className="split-auth-header">
+            <h1 className="split-auth-title">Create Account</h1>
+            <p className="split-auth-subtitle">
+              Sign up today and get your free ATS resume audit
+            </p>
+          </div>
+
+          <form onSubmit={handleCreate} noValidate className="split-auth-form">
+            <div className="auth-row">
+              <FormField
+                id="firstName"
+                label="First name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                onBlur={() => handleBlur("firstName")}
+                error={fieldErrors.firstName}
+                touched={touched.firstName}
+                placeholder="First name"
+                autoComplete="given-name"
+              />
+              <FormField
+                id="lastName"
+                label="Last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                onBlur={() => handleBlur("lastName")}
+                error={fieldErrors.lastName}
+                touched={touched.lastName}
+                placeholder="Last name"
+                autoComplete="family-name"
+              />
+            </div>
+
+            <FormField
+              id="email"
+              label="Email address"
+              type="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (touched.email)
+                  validateField("email", { email: e.target.value });
+              }}
+              onBlur={() => handleBlur("email")}
+              error={fieldErrors.email}
+              touched={touched.email}
+              placeholder="aimerpaix@gmail.com"
+              required
+              autoComplete="email"
+            />
+
+            <FormField
+              id="password"
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (touched.password) {
+                  validateField("password", {
+                    email,
+                    password: e.target.value,
+                    confirm,
+                  });
+                }
+                if (touched.confirm && confirm) {
+                  validateField("confirm", {
+                    email,
+                    password: e.target.value,
+                    confirm,
+                  });
+                }
+              }}
+              onBlur={() => handleBlur("password")}
+              error={fieldErrors.password}
+              touched={touched.password}
+              placeholder="Create a password"
+              required
+              showPasswordToggle
+              autoComplete="new-password"
+            />
+            <PasswordStrength password={password} />
+
+            <FormField
+              id="confirm"
+              label="Confirm password"
+              type="password"
+              value={confirm}
+              onChange={(e) => {
+                setConfirm(e.target.value);
+                if (touched.confirm) {
+                  validateField("confirm", {
+                    email,
+                    password,
+                    confirm: e.target.value,
+                  });
+                }
+              }}
+              onBlur={() => handleBlur("confirm")}
+              error={fieldErrors.confirm}
+              touched={touched.confirm}
+              placeholder="Confirm your password"
+              required
+              showPasswordToggle
+              autoComplete="new-password"
+            />
+
+            {formError && (
+              <div className="form-alert form-alert--error" role="alert">
+                {formError}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="split-auth-submit-btn"
+            >
+              {loading ? "Creating..." : "Create account"}
+            </button>
+
+            <p className="split-auth-footer">
+              Already have an account?{" "}
+              <button
+                type="button"
+                className="split-auth-footer-link"
+                onClick={() => navigate("/login")}
+              >
+                Sign in
+              </button>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

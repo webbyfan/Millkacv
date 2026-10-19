@@ -10,11 +10,22 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-col">
             <div className="footer-logo">
-              <div className="logo-box">M</div>
-              <span className="logo-text">Milkaa CV</span>
+              <img
+                src="/logo.png"
+                alt="Millka CV"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "8px",
+                  objectFit: "cover",
+                }}
+              />
+              <span className="logo-text">
+                Millka<span style={{ color: "#a78bfa" }}>CV</span>
+              </span>
             </div>
             <p className="footer-description">
-              AI-powered resume builder for modern job seekers.
+              AI-powered ATS resume builder for career success.
             </p>
           </div>
 
@@ -82,7 +93,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p>&copy; 2024 ResumeAI. All rights reserved.</p>
+            <p>&copy; 2026 Millka CV. All rights reserved.</p>
           </div>
 
           {/* Social Links */}

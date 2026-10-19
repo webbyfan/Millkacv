@@ -12,11 +12,12 @@ export default function Navbar() {
         position: "fixed",
         top: 0,
         width: "100%",
-        backgroundColor: "rgba(50, 50, 50, 0.5)",
-        backdropFilter: "blur(10px)",
-        borderBottom: "1px solid #ddd",
+        backgroundColor: "rgba(255, 255, 255, 0.92)",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1.5px solid #ede9fe",
         zIndex: 50,
         transition: "all 0.3s ease",
+        boxShadow: "0 4px 20px rgba(124, 58, 237, 0.04)",
       }}
     >
       <div
@@ -33,98 +34,74 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "12px",
             marginLeft: "8px",
+            cursor: "pointer",
           }}
+          onClick={() => navigate("/")}
         >
-          <div
+          <img
+            src="/logo.png"
+            alt="Millka CV"
             style={{
-              width: "40px",
-              height: "40px",
-              background: "linear-gradient(to bottom right, #DA291C, #48fb81)",
-              borderRadius: "8px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              width: "42px",
+              height: "42px",
+              borderRadius: "10px",
+              objectFit: "cover",
+              boxShadow: "0 4px 12px rgba(124, 58, 237, 0.15)",
+            }}
+          />
+          <span
+            style={{
+              fontWeight: "800",
+              fontSize: "22px",
+              color: "#1e1b4b",
+              letterSpacing: "-0.5px",
             }}
           >
-            <span
-              style={{ color: "white", fontWeight: "bold", fontSize: "18px" }}
-            >
-              M
-            </span>
-          </div>
-          <span style={{ fontWeight: "bold", fontSize: "20px", color: "#111" }}>
-            MilkaaCV
+            Millka<span style={{ color: "#7c3aed" }}>CV</span>
           </span>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-          <a
-            href="#features"
-            style={{
-              color: "#f3ecec",
-              textDecoration: "none",
-              cursor: "pointer",
-              transition: "color 0.3s",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#111")}
-            onMouseLeave={(e) => (e.target.style.color = "#f3ecec")}
-          >
-            Features
-          </a>
-          <a
-            href="#ats"
-            style={{
-              color: "#f3ecec",
-              textDecoration: "none",
-              cursor: "pointer",
-              transition: "color 0.3s",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#111")}
-            onMouseLeave={(e) => (e.target.style.color = "#f3ecec")}
-          >
-            ATS Checker
-          </a>
-          <a
-            href="#pricing"
-            style={{
-              color: "#f3ecec",
-              textDecoration: "none",
-              cursor: "pointer",
-              transition: "color 0.3s",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#111")}
-            onMouseLeave={(e) => (e.target.style.color = "#f3ecec")}
-          >
-            Pricing
-          </a>
-          <a
-            href="#faq"
-            style={{
-              color: "#f3ecec",
-              textDecoration: "none",
-              cursor: "pointer",
-              transition: "color 0.3s",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#111")}
-            onMouseLeave={(e) => (e.target.style.color = "#f3ecec")}
-          >
-            FAQ
-          </a>
+          {[
+            { label: "Features", href: "#features" },
+            { label: "ATS Checker", href: "#ats" },
+            { label: "Pricing", href: "#pricing" },
+            { label: "FAQ", href: "#faq" },
+          ].map((link, idx) => (
+            <a
+              key={idx}
+              href={link.href}
+              style={{
+                color: "#475569",
+                textDecoration: "none",
+                fontWeight: "600",
+                fontSize: "15px",
+                cursor: "pointer",
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#7c3aed")}
+              onMouseLeave={(e) => (e.target.style.color = "#475569")}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
           <button
             onClick={() => navigate("/login")}
             style={{
-              padding: "8px 16px",
-              backgroundColor: "transparent",
-              color: hoverLogin ? "#111" : "#f3ecec",
-              border: "none",
-              fontWeight: "500",
+              padding: "9px 20px",
+              backgroundColor: hoverLogin ? "#f5f3ff" : "transparent",
+              color: "#7c3aed",
+              border: "1.5px solid #ddd6fe",
+              borderRadius: "9999px",
+              fontWeight: "700",
+              fontSize: "14px",
               cursor: "pointer",
-              transition: "color 0.3s",
+              transition: "all 0.2s ease",
             }}
             onMouseEnter={() => setHoverLogin(true)}
             onMouseLeave={() => setHoverLogin(false)}
@@ -134,18 +111,19 @@ export default function Navbar() {
           <button
             onClick={() => navigate("/login")}
             style={{
-              padding: "8px 24px",
-              background: "linear-gradient(to right, #DA291C, #FCD116)",
-              color: "black",
+              padding: "9px 24px",
+              background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+              color: "#ffffff",
               border: "none",
-              borderRadius: "8px",
-              fontWeight: "500",
+              borderRadius: "9999px",
+              fontWeight: "700",
+              fontSize: "14px",
               cursor: "pointer",
               boxShadow: hoverStart
-                ? "0 20px 25px rgba(218, 41, 28, 0.3)"
-                : "0 10px 15px rgba(218, 41, 28, 0.2)",
-              transition: "all 0.3s",
-              transform: hoverStart ? "scale(1.05)" : "scale(1)",
+                ? "0 10px 25px rgba(124, 58, 237, 0.38)"
+                : "0 4px 14px rgba(124, 58, 237, 0.25)",
+              transition: "all 0.25s ease",
+              transform: hoverStart ? "translateY(-1px)" : "translateY(0)",
             }}
             onMouseEnter={() => setHoverStart(true)}
             onMouseLeave={() => setHoverStart(false)}

@@ -10,6 +10,7 @@ import metaRouter from "./routes/meta.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import resumesRouter from "./routes/resumes.js";
+import aiRouter from "./routes/ai.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 dotenv.config();
@@ -25,7 +26,8 @@ app.use(
     origin: process.env.CORS_ORIGIN || "*",
   }),
 );
-app.use(express.json());
+app.use(express.json({ limit: "15mb" }));
+app.use(express.urlencoded({ extended: true, limit: "15mb" }));
 app.use(morgan("dev"));
 
 const limiter = rateLimit({
@@ -41,6 +43,7 @@ app.use("/api/meta", metaRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/resumes", resumesRouter);
+app.use("/api/ai", aiRouter);
 
 app.get("/", (req, res) => res.send({ ok: true, service: "resume-backend" }));
 

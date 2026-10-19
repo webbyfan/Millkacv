@@ -1,32 +1,40 @@
 /* Resume Card Styles */
 
 .resume-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  border: 1.5px solid #ede9fe;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .resume-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.14);
   border-color: #7c3aed;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Resume Header */
 .resume-header {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
 }
 
 .resume-icon {
-  font-size: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -36,15 +44,16 @@
 
 .resume-title {
   font-size: 16px;
-  font-weight: 600;
-  color: #111;
+  font-weight: 700;
+  color: #1e1b4b;
   margin: 0 0 4px 0;
   word-break: break-word;
+  letter-spacing: -0.2px;
 }
 
 .resume-date {
-  font-size: 12px;
-  color: #999;
+  font-size: 12.5px;
+  color: #6b7280;
   margin: 0;
 }
 
@@ -57,8 +66,8 @@
 
 .ats-label {
   font-size: 13px;
-  font-weight: 600;
-  color: #666;
+  font-weight: 700;
+  color: #7c3aed;
   white-space: nowrap;
 }
 
@@ -72,21 +81,22 @@
 .ats-progress {
   flex: 1;
   height: 8px;
-  background: #e5e7eb;
-  border-radius: 4px;
+  background: #f5f3ff;
+  border: 1px solid #ede9fe;
+  border-radius: 9999px;
   overflow: hidden;
 }
 
 .ats-progress-bar {
   height: 100%;
-  background: linear-gradient(to right, #7c3aed, #6d28d9);
-  border-radius: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+  border-radius: 9999px;
   transition: width 0.3s ease;
 }
 
 .ats-value {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 800;
   color: #7c3aed;
   min-width: 40px;
   text-align: right;
@@ -95,47 +105,56 @@
 /* Action Buttons */
 .resume-actions {
   display: flex;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .btn {
   flex: 1;
-  padding: 10px 12px;
-  border: none;
+  padding: 9px 12px;
   border-radius: 8px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
 }
 
-.btn-edit {
-  background: #f0f0f0;
-  color: #111;
-  border: 1px solid #e0e0e0;
+.btn-view {
+  background: #ffffff;
+  color: #7c3aed;
+  border: 1.5px solid #ede9fe;
 }
 
-.btn-edit:hover {
-  background: #7c3aed;
-  color: white;
+.btn-view:hover {
+  background: #f5f3ff;
   border-color: #7c3aed;
 }
 
+.btn-edit {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: 1.5px solid transparent;
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
 .btn-delete {
-  background: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
+  background: #ffffff;
+  color: #6b7280;
+  border: 1.5px solid #ede9fe;
 }
 
 .btn-delete:hover {
-  background: #ef4444;
-  color: white;
-  border-color: #ef4444;
+  background: #faf5ff;
+  color: #7c3aed;
+  border-color: #7c3aed;
 }
 
 .btn:active {
